@@ -1,0 +1,31 @@
+#!/bin/bash
+#PBS -q production
+#PBS -N openmpi_intel
+#PBS -l select=16:ncpus=1
+#PBS -l place=free
+#PBS -V
+
+# Find out name of master execution host (compute node)
+
+echo -n ">>>> PBS Master compute node is: "
+hostname
+echo ""
+
+# You must explicitly change to your working directory in PBS
+# The PBS_O_WORKDIR variable is automatically filled with the
+# path to the directory you submit your job from
+
+cd $PBS_O_WORKDIR
+
+# The PBS_NODEFILE file contains the compute nodes assigned
+# to your job by PBS.  Uncommenting the next line will show them.
+
+echo ">>>> PBS Assigned these nodes to your job: "
+echo ""
+cat $PBS_NODEFILE
+echo ""
+
+# Because OpenMPI compiled with the Intel compilers is the default,
+# the full path here is NOT required.
+
+mpirun  -np 16 -machinefile $PBS_NODEFILE ./run.exe > mystdout

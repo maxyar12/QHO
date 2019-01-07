@@ -1,0 +1,10 @@
+20                         !L
+1.d0                      !mass
+1.d0                       !frequency  
+1.d0                       !beta
+0.1d0                     !scan step
+1000000.d0                   !t-step
+1000000.d0                   !p-step
+10000000000000.d0               !s-step
+0                          !config. mode  
+0                          !stats mode

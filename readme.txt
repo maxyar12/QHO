@@ -1,0 +1,1 @@
+The file oscillator3 implements the 1+1 imaginary time single particle 1D, quantum harmonic oscillator using the svistunov, prokofiev method (worm algorithm). Temperature, and the lattice time step can be set in the par file. Additional random number generator files are also included. 
